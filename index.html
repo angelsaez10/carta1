@@ -3,303 +3,287 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>MAUI — Carta de Cócteles</title>
-  <meta name="description" content="MAUI Nerja — Bar de cócteles en la plaza. Carta completa de cócteles, mojitos, bebidas y combinados." />
-  <link rel="preconnect" href="[fonts.googleapis.com](https://fonts.googleapis.com)">
-  <link rel="preconnect" href="[fonts.gstatic.com](https://fonts.gstatic.com)" crossorigin>
-  <link href="[fonts.googleapis.com](https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800&display=swap)" rel="stylesheet">
+  <title>MAUI — Bar de cócteles | Nerja</title>
+  <meta name="description" content="MAUI — Cócteles con alma playera en Nerja. Ambiente tropical, buena música y copas bien hechas." />
+
   <style>
     :root{
-      --bg:#0a0f14;
-      --card:#111823;
-      --ink:#eaf2ff;
-      --muted:#9fb6d9;
-      --accent:#35c3ff;
-      --accent-2:#00e0b8;
-      --brand:#59a7ff;
-      --price:#ffd166;
-      --badge:#18283a;
+      --bg:#0b0f1a;            /* fondo oscuro */
+      --panel:#0f1424;         /* paneles */
+      --text:#e7f0ff;          /* texto principal */
+      --muted:#9cb3ff;         /* texto secundario */
+      --accent:#58c8ff;        /* cian neón */
+      --accent-2:#b86bff;      /* violeta neón */
+      --success:#7affc1;       /* verde menta */
+      --warn:#ffd166;          /* amarillo suave */
     }
+
+    /* Reset mínimo */
     *{box-sizing:border-box}
-    html,body{margin:0;background:radial-gradient(1200px 600px at 80% -100px, #103058 0%, var(--bg) 55%) fixed;color:var(--ink);font-family:Montserrat,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial,"Noto Sans","Apple Color Emoji","Segoe UI Emoji";line-height:1.45}
-    a{color:var(--accent)}
-    img{max-width:100%;height:auto}
-    .wrap{max-width:1000px;margin:auto;padding:24px}
-    header{
-      display:flex;gap:16px;align-items:center;justify-content:space-between;
-      background:linear-gradient(160deg,#0f1e2c, #0c1723 60%, #0a121c);
-      border:1px solid #1b2a3b;border-radius:18px;padding:14px 18px 14px 14px;position:sticky;top:0;z-index:10;backdrop-filter: blur(8px)
+    html,body{margin:0;padding:0;background:radial-gradient(1200px 600px at 80% -10%, rgba(88,200,255,.15), transparent 60%), radial-gradient(900px 500px at 10% 110%, rgba(184,107,255,.12), transparent 60%), var(--bg); color:var(--text); font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif; line-height:1.45;}
+    img{max-width:100%;height:auto;display:block}
+
+    /* Layout */
+    .wrap{max-width:960px;margin:auto;padding:24px}
+    header{display:flex;align-items:center;gap:16px;margin:8px 0 24px}
+    header .logo{
+      width:160px;height:64px; background: url('./img/maui-logo.png') center/contain no-repeat;
+      filter: drop-shadow(0 0 10px rgba(88,200,255,.6)) drop-shadow(0 0 24px rgba(184,107,255,.35));
     }
-    .brand{display:flex;gap:14px;align-items:center}
-    .logo{
-      width:58px;height:58px;border-radius:12px;display:grid;place-items:center;
-      background:radial-gradient(60% 60% at 50% 35%, #2b6cff 0%, #183a8a 55%, #0b1930 100%);
-      border:1px solid #1d3f7a; box-shadow:0 0 22px rgba(53,195,255,.35), inset 0 0 20px rgba(20,70,160,.45)
-    }
-    .logo img{filter:drop-shadow(0 0 10px rgba(53,195,255,.5))}
-    h1{font-size:28px;margin:0;font-weight:800;letter-spacing:.5px}
-    .sub{font-size:13px;color:var(--muted)}
-    nav{display:flex;gap:10px;flex-wrap:wrap}
-    nav a{
-      text-decoration:none;color:var(--ink);padding:8px 12px;border-radius:10px;
-      border:1px solid #223447;background:var(--badge);font-weight:600;font-size:13px
-    }
-    main{margin-top:22px;display:grid;gap:26px}
+    header .brand h1{margin:0;font-size:28px;letter-spacing:.04em}
+    header .brand p{margin:4px 0 0;color:var(--muted);font-size:14px}
+
     .hero{
-      background:linear-gradient(180deg, rgba(41,73,117,.35), rgba(13,22,33,.6)), url('[images.unsplash.com](https://images.unsplash.com/photo-1543007630-9710e4a00a20?q=80&w=1600&auto=format&fit=crop)') center/cover;
-      border:1px solid #1b2a3b;border-radius:18px;padding:28px
+      border:1px solid rgba(88,200,255,.25); background:linear-gradient(180deg, rgba(15,20,36,.9), rgba(15,20,36,.75));
+      padding:20px;border-radius:16px;
+      box-shadow: 0 0 0 1px rgba(184,107,255,.12), 0 0 24px rgba(88,200,255,.15) inset;
     }
-    .hero h2{font-size:30px;margin:0 0 6px}
-    .hero p{color:var(--muted);max-width:720px;margin:0 0 8px}
-    .grid{display:grid;gap:20px;grid-template-columns:repeat(auto-fit,minmax(280px,1fr))}
-    section.card{
-      background:linear-gradient(180deg,#0f1825 0%, #0e1622 40%, #0b121b 100%);
-      border:1px solid #1b2a3b;border-radius:16px;padding:18px 16px 6px
+    .hero h2{margin:0 0 6px;font-size:22px}
+    .hero p{margin:0;color:var(--muted)}
+
+    /* Secciones */
+    section{margin:28px 0}
+    .panel{
+      background:var(--panel); border:1px solid rgba(184,107,255,.18);
+      border-radius:16px; padding:20px;
+      box-shadow:0 0 0 1px rgba(88,200,255,.08), 0 12px 28px rgba(0,0,0,.35);
     }
-    section.card h3{margin:2px 6px 8px;font-size:20px}
-    ul.menu{list-style:none;margin:0;padding:0;display:grid;gap:10px}
+    .section-title{
+      display:flex;align-items:baseline;gap:12px;margin:0 0 12px;
+    }
+    .section-title h3{margin:0;font-size:20px}
+    .section-title .tag{color:var(--accent);font-size:12px;letter-spacing:.08em;text-transform:uppercase}
+
+    /* Lista de cocktails */
+    .list{
+      display:grid; grid-template-columns: 1fr; gap:14px;
+    }
+    @media(min-width:640px){
+      .list{grid-template-columns: 1fr 1fr}
+    }
     .item{
-      display:grid;grid-template-columns:1fr auto;gap:12px;align-items:start;
-      padding:10px 12px;border-radius:12px;background:#0d1520;border:1px solid #1a2a3d
+      background:rgba(11,15,26,.5);
+      border:1px solid rgba(88,200,255,.14);
+      border-radius:12px; padding:12px 14px;
+      position:relative; overflow:hidden;
     }
-    .name{font-weight:700}
-    .desc{color:var(--muted);font-size:13px;margin-top:2px}
-    .price{color:var(--price);font-weight:800;letter-spacing:.3px}
-    .badge{
-      display:inline-block;margin-left:6px;padding:2px 8px;border-radius:999px;
-      background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#00131a;font-size:11px;font-weight:800
+    .item::after{
+      content:""; position:absolute; inset:auto -30% -40% auto; width:70%; height:120%;
+      background: radial-gradient(50% 50% at 50% 50%, rgba(184,107,255,.10), transparent 70%);
+      pointer-events:none;
     }
-    footer{
-      margin:10px 0 40px;color:var(--muted);font-size:13px;text-align:center
+    .item .top{display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+    .item .name{font-weight:700; letter-spacing:.02em}
+    .item .price{color:var(--success); font-weight:700}
+    .item .desc{color:var(--muted); font-size:14px; margin-top:6px}
+
+    /* Notas y pie */
+    .note{color:var(--warn); font-size:13px; margin-top:10px}
+    footer{margin:32px 0 12px; color:var(--muted); font-size:13px; text-align:center}
+
+    /* Toques neón */
+    .glow{
+      text-shadow:0 0 8px rgba(88,200,255,.8), 0 0 18px rgba(184,107,255,.5);
     }
-    .allergen{font-size:12px;color:#a8bfdc;margin-top:10px}
-    .note{font-size:12px;color:#a8bfdc;margin-top:8px}
-    /* small screens */
-    @media (max-width:520px){
-      h1{font-size:22px}
-      .hero h2{font-size:24px}
+    .divider{
+      height:1px; background:linear-gradient(90deg, transparent, rgba(88,200,255,.35), transparent);
+      margin:18px 0;
     }
   </style>
 </head>
 <body>
   <div class="wrap">
     <header>
+      <div class="logo" aria-label="MAUI logo"></div>
       <div class="brand">
-        <div class="logo" aria-hidden="true">
-          <!-- Sustituye esta imagen por tu logo del rótulo MAUI -->
-          <img src="[raw.githubusercontent.com](https://raw.githubusercontent.com/placeholder/maui-logo/main/maui-logo.png)" alt="MAUI logo" onerror="this.style.display='none'">
-        </div>
-        <div>
-          <h1>MAUI</h1>
-          <div class="sub">Bar de cócteles — Plaza de fiesta en Nerja</div>
-        </div>
+        <h1 class="glow">MAUI</h1>
+        <p>Bar de cócteles — Plaza de fiesta en Nerja</p>
       </div>
-      <nav>
-        <a href="#mojitos">Mojitos</a>
-        <a href="#sin-alcohol">Sin alcohol</a>
-        <a href="#cocktails">Cocktails</a>
-        <a href="#bebidas">Bebidas</a>
-      </nav>
     </header>
 
-    <section class="hero" aria-label="presentación">
-      <h2>Cócteles con alma playera</h2>
-      <p>Ambiente tropical, buena música y copas bien hechas. Descubre nuestros mojitos, clásicos de barra y combinados.</p>
-      <p class="note">Precios con IVA incluido. Si tienes algún alérgeno o intolerancia, por favor, comunícalo al personal.</p>
+    <div class="hero">
+      <h2> Cócteles con alma playera </h2>
+      <p>Ambiente tropical, buena música y copas bien hechas. Descubre nuestros mojitos, clásicos de barra y combinados. Precios con IVA incluido.</p>
+      <p class="note">Si tienes algún alérgeno o intolerancia, por favor, comunícalo al personal.</p>
+    </div>
+
+    <!-- Cocktails unificados -->
+    <section>
+      <div class="panel">
+        <div class="section-title">
+          <h3 class="glow">Cocktails</h3>
+          <span class="tag">Con y sin alcohol</span>
+        </div>
+        <div class="list">
+          <!-- Sin alcohol -->
+          <article class="item">
+            <div class="top">
+              <span class="name">Mojito clásico (sin alcohol)</span>
+              <span class="price">7€</span>
+            </div>
+            <p class="desc">Soda, hojas de menta, lima, azúcar.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Mojito de frutas de estación (sin alcohol)</span>
+              <span class="price">7€</span>
+            </div>
+            <p class="desc">Soda, menta, lima, azúcar y fruta de estación.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">San Francisco (sin alcohol)</span>
+              <span class="price">7€</span>
+            </div>
+            <p class="desc">Zumo de melocotón, piña y naranja.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Baby Yoda estrella (sin alcohol)</span>
+              <span class="price">10€</span>
+            </div>
+            <p class="desc">Presentación especial temática.</p>
+          </article>
+
+          <!-- Con alcohol -->
+          <article class="item">
+            <div class="top">
+              <span class="name">Mojito clásico</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Ron añejo, hierbabuena, zumo de lima, azúcar moreno.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Mojito de fruta de estación</span>
+              <span class="price">9€</span>
+            </div>
+            <p class="desc">Ron, menta, lima, azúcar y fruta de estación.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Cosmopolitan</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Vodka, Cointreau, zumo de arándano, lima fresca, azúcar.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Espresso Martini</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Vodka, Kahlúa, café, azúcar líquido.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Moscow Mule</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Vodka, zumo de lima, ginger ale, azúcar líquido.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Sex on the Beach</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Vodka, licor de melocotón, granadina, arándano.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Margarita clásico</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Tequila, Cointreau, zumo de limón.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Tequila Sunrise</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Tequila, Cointreau, zumo de naranja, granadina.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Caipirinha</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Cachaça, lima fresca, azúcar.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Negroni</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Ginebra, Campari, Martini rojo, soda.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Whisky Sour</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Bourbon, zumo de limón, clara de huevo, azúcar líquido.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Daiquiri de fresa</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Ron blanco, fresas, zumo de limón, azúcar.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Daiquiri de mango</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Ron blanco, mango, zumo de limón, azúcar.</p>
+          </article>
+          <article class="item">
+            <div class="top">
+              <span class="name">Piña colada</span>
+              <span class="price">8€</span>
+            </div>
+            <p class="desc">Ron blanco, Malibú, zumo de piña, leche y crema de coco.</p>
+          </article>
+        </div>
+
+        <div class="divider"></div>
+
+        <!-- Bebidas -->
+        <div class="section-title">
+          <h3>Otras bebidas</h3>
+        </div>
+        <div class="list">
+          <article class="item">
+            <div class="top"><span class="name">Agua</span><span class="price">2€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Refrescos y zumos</span><span class="price">3€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Caña de Cruzcampo</span><span class="price">2€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Copa de Cruzcampo / Tinto de Verano</span><span class="price">3€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Tanque de Cruzcampo / Tinto de Verano</span><span class="price">5,50€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Café</span><span class="price">1,50€</span></div>
+          </article>
+          <article class="item">
+            <div class="top"><span class="name">Combinados</span><span class="price">desde 7€+</span></div>
+            <p class="desc">Precio variable según marca y mixer.</p>
+          </article>
+        </div>
+
+        <p class="note">Alérgenos e intolerancias: consulta a nuestro personal.</p>
+      </div>
     </section>
 
-    <main>
-      <div class="grid">
-        <section id="mojitos" class="card">
-          <h3>Mojitos</h3>
-          <ul class="menu">
-            <li class="item">
-              <div>
-                <div class="name">Mojito clásico</div>
-                <div class="desc">(Ron añejo, hierbabuena, zumo de lima, azúcar moreno)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Mojito de fruta de estación</div>
-                <div class="desc">(Ron, hojas de menta, lima, azúcar, fruta de estación)</div>
-              </div>
-              <div class="price">9€</div>
-            </li>
-          </ul>
-        </section>
-
-        <section id="sin-alcohol" class="card">
-          <h3>Cocktails sin alcohol</h3>
-          <ul class="menu">
-            <li class="item">
-              <div>
-                <div class="name">Mojito clásico</div>
-                <div class="desc">(Soda, hojas de menta, lima, azúcar)</div>
-              </div>
-              <div class="price">7€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Mojito de frutas de estación</div>
-                <div class="desc">(Soda, hojas de menta, lima, azúcar, fruta de estación)</div>
-              </div>
-              <div class="price">7€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">San Francisco</div>
-                <div class="desc">(Zumo de melocotón, zumo de piña, zumo de naranja)</div>
-              </div>
-              <div class="price">7€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Baby Yoda <span class="badge">estrella</span></div>
-                <div class="desc">Presentación especial temática.</div>
-              </div>
-              <div class="price">10€</div>
-            </li>
-          </ul>
-        </section>
-
-        <section id="cocktails" class="card">
-          <h3>Cocktails</h3>
-          <ul class="menu">
-            <li class="item">
-              <div>
-                <div class="name">Cosmopolitan</div>
-                <div class="desc">(Vodka, Cointreau, zumo de arándano, lima fresca, azúcar)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Espresso Martini</div>
-                <div class="desc">(Vodka, Kahlúa, café, azúcar líquido)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Moscow Mule</div>
-                <div class="desc">(Vodka, zumo de lima, ginger ale, azúcar líquido)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Sex on the Beach</div>
-                <div class="desc">(Vodka, licor de melocotón, granadina, zumo de arándano)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Margarita clásico</div>
-                <div class="desc">(Tequila, Cointreau, zumo de limón)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Tequila Sunrise</div>
-                <div class="desc">(Tequila, Cointreau, zumo de naranja, granadina)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Caipirinha</div>
-                <div class="desc">(Cachaça, lima fresca, azúcar)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Negroni</div>
-                <div class="desc">(Ginebra, Campari, Martini rojo, soda)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Whisky Sour</div>
-                <div class="desc">(Bourbon, zumo de limón, clara de huevo, azúcar líquido)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Daiquiri de fresa</div>
-                <div class="desc">(Ron blanco, fresas, zumo de limón, azúcar)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Daiquiri de mango</div>
-                <div class="desc">(Ron blanco, mango, zumo de limón, azúcar)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Piña colada</div>
-                <div class="desc">(Ron blanco, Malibú, zumo de piña, leche de coco, crema de coco)</div>
-              </div>
-              <div class="price">8€</div>
-            </li>
-          </ul>
-        </section>
-
-        <section id="bebidas" class="card">
-          <h3>Bebidas</h3>
-          <ul class="menu">
-            <li class="item">
-              <div><div class="name">Agua</div></div>
-              <div class="price">2€</div>
-            </li>
-            <li class="item">
-              <div><div class="name">Refrescos y zumos</div></div>
-              <div class="price">3€</div>
-            </li>
-            <li class="item">
-              <div><div class="name">Caña de Cruzcampo</div></div>
-              <div class="price">2€</div>
-            </li>
-            <li class="item">
-              <div><div class="name">Copa de Cruzcampo / Tinto de Verano</div></div>
-              <div class="price">3€</div>
-            </li>
-            <li class="item">
-              <div><div class="name">Tanque de Cruzcampo / Tinto de Verano</div></div>
-              <div class="price">5,50€</div>
-            </li>
-            <li class="item">
-              <div><div class="name">Café</div></div>
-              <div class="price">1,50€</div>
-            </li>
-            <li class="item">
-              <div>
-                <div class="name">Combinados <span class="badge">desde</span></div>
-                <div class="desc">Precio variable según marca y mixer.</div>
-              </div>
-              <div class="price">7€+</div>
-            </li>
-          </ul>
-          <p class="allergen">Alérgenos e intolerancias: consulta a nuestro personal.</p>
-        </section>
-      </div>
-    </main>
-
     <footer>
-      © <span id="y"></span> MAUI — Nerja. Hecho con cariño para la plaza.
+      © 2026 MAUI — Nerja. Hecho con cariño para la plaza.
     </footer>
   </div>
-  <script>
-    document.getElementById('y').textContent = new Date().getFullYear();
-  </script>
 </body>
 </html>
